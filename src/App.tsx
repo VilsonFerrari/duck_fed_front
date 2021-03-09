@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, Nav, NavItem, NavLink } from 'reactstrap';
+import Report from './views/Report';
+import Research from './views/Research';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface Props {}
+
+interface State {
+  page: number
 }
 
-export default App;
+export default class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      page: 0
+    }
+  }
+
+  setPage(page: number) {
+    this.setState({ page })
+  }
+
+  render() {
+    const { page } = this.state
+    
+    return (
+      <Container>
+        <Nav className="mb-5">
+          <NavItem>
+            <NavLink href="#" onClick={() => this.setPage(0)}>Form</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" onClick={() => this.setPage(1)}>Report</NavLink>
+          </NavItem>
+        </Nav>
+        {page === 0 ? <Research /> : <Report />}
+      </Container>
+    )
+  }
+}
