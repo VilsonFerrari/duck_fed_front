@@ -42,7 +42,7 @@ export default class Report extends React.Component<Props, State> {
     fetch() {
         const { p, order } = this.state
 
-        api.get('/reports', {
+        api.get('/get', {
             params: { p, order }
         })
             .then(({ data }: any) => {

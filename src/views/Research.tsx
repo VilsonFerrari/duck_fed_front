@@ -73,7 +73,7 @@ export default class Research extends React.Component<Props, State> {
             } else {
                 this.setState({ error: null, success: null, loading: true })
 
-                api.post('/report', {
+                api.post('/save', {
                     feed_at: this.state.feedAt,
                     food: this.state.food,
                     food_kind: this.state.foodKind,
