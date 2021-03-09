@@ -123,10 +123,8 @@ export default class Report extends React.Component<Props, State> {
                         </Col>
                     </>
                 ) : (
-                    <Col xs={12}>
-                        <p className="text-center">
-                            <Spinner color="dark" />
-                        </p>
+                    <Col xs={12} className="text-center">
+                        <Spinner color="dark" />
                     </Col>
                 )}
             </Row>
